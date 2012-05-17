@@ -32,9 +32,8 @@
 #       2   3.84702  5.95842  6.58626  5.97181  2.06407  5.79758  6.11757  2.43011  5.76033  0.58540  3.17079  5.96610  6.11889  5.84497  5.74893  5.11667  4.83456  2.97676  3.47925  3.13829      2 - H
 #           2.68618  4.42225  2.77519  2.73123  3.46354  2.40513  3.72494  3.29354  2.67741  2.69355  4.24690  2.90347  2.73739  3.18146  2.89801  2.37887  2.77519  2.98518  4.58477  3.61503
 #           0.00153  6.88065  7.60300  0.61958  0.77255  0.48576  0.95510
-
 module Bio
-  class Hmmer
+  class HMMER
     class Model
       class ParseException<Exception; end
 
@@ -61,6 +60,30 @@ module Bio
 
       # Probabilities for state transitions in the model (third line of each position in the main model part of the HMMER3/b file format)
       attr_accessor :state_transitions
+      
+      # A reader interface for multiple HMMs into individual model objects
+      #
+      # === Examples
+      # 
+      #   # Iterator
+      #   Bio::HMMER::Model.models(big_hmm_text) do |mode|
+      #     model
+      #   end
+      #
+      #   # Array
+      #   reports = Bio::HMMER::Model.models(reports_text)
+      #
+      def self.models(multiple_model_text)
+        ary = []
+        multiple_model_text.each_line("\n//\n") do |report|
+          if block_given?
+            yield Bio::HMMER::Model.parse(report)
+          else
+            ary << Bio::HMMER::Model.parse(report)
+          end
+        end
+        return ary
+      end
 
       # Return the probability given in the HMM of the match probability of a particular position.
       #
@@ -79,9 +102,14 @@ module Bio
       #
       #    Bio::Hmmer::Model.parse(File.open('test/data/PF10417.4.hmm')).leng => 40
       def self.parse(io)
-        model = Bio::Hmmer::Model.new
+        model = Bio::HMMER::Model.new
 
-        lines = io.readlines
+        lines = nil
+        if io.kind_of?(String)
+          lines = io.split("\n")
+        else
+          lines = io.read.split("\n")
+        end
 
         unless lines[0].match(/^HMMER3\/b/)
           raise ParseException, "Only HMMER3/b files are currently supported, sorry. The first line of the HMMER model file causing the problem is #{lines[0]}"

@@ -51,3 +51,4 @@ pkg
 Gemfile.lock
 *.gemspec
 
+test/test_pfam.rb

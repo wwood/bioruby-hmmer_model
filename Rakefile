@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "bio-hmmer_model"
   gem.homepage = "http://github.com/wwood/bioruby-hmmer_model"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Parse PFAM HMM definition files}
+  gem.description = %Q{Parse PFAM HMM definition files so that the models can be accessible programmatically}
   gem.email = "donttrustben near gmail.com"
   gem.authors = ["Ben J. Woodcroft"]
   # dependencies defined in Gemfile
