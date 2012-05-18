@@ -6,6 +6,7 @@ class TestBioHmmerModel < Test::Unit::TestCase
     assert_equal 86, hmm.nseq
     assert_equal 40, hmm.leng
     assert_in_delta 0.00000005, hmm.match_emissions[0][3], 1e-8
+    assert_equal "hmmsearch -Z 15929002 -E 1000 --cpu 4 HMM pfamseq", hmm.sm
     assert_equal ['LOCAL','FORWARD',-4.3017,0.71948], hmm.stats[2]
   end
   
