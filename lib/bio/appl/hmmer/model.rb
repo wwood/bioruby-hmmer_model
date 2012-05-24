@@ -1,39 +1,40 @@
-## Example HMM model file, taken from PFAM 26.
 
-# HMMER3/b [3.0 | March 2010]
-# NAME  1-cysPrx_C
-# ACC   PF10417.4
-# DESC  C-terminal domain of 1-Cys peroxiredoxin
-# LENG  40
-# ALPH  amino
-# RF    no
-# CS    yes
-# MAP   yes
-# DATE  Mon Sep 26 01:36:52 2011
-# NSEQ  86
-# EFFN  26.221497
-# CKSUM 2893062708
-# GA    20.40 20.40;
-# TC    20.40 20.50;
-# NC    20.30 20.30;
-# BM    hmmbuild HMM.ann SEED.ann
-# SM    hmmsearch -Z 15929002 -E 1000 --cpu 4 HMM pfamseq
-# STATS LOCAL MSV       -7.4458  0.71948
-# STATS LOCAL VITERBI   -7.8857  0.71948
-# STATS LOCAL FORWARD   -4.3017  0.71948
-# HMM          A        C        D        E        F        G        H        I        K        L        M        N        P        Q        R        S        T        V        W        Y
-#             m->m     m->i     m->d     i->m     i->i     d->m     d->d
-#   COMPO   2.25274  4.33630  2.74834  2.65826  3.87771  2.70273  3.95751  3.25125  2.56848  2.82101  4.06536  3.21194  2.50202  2.97228  3.39798  2.99665  2.70159  2.62185  3.52465  3.78187
-#           2.68618  4.42225  2.77519  2.73123  3.46354  2.40513  3.72494  3.29354  2.67741  2.69355  4.24690  2.90347  2.73739  3.18146  2.89801  2.37887  2.77519  2.98518  4.58477  3.61503
-#           0.00153  6.88065  7.60300  0.61958  0.77255  0.00000        *
-#       1   0.35002  6.53529  7.25102  7.30399  7.52698  2.51105  7.66616  7.05965  7.14684  6.75377  3.79371  6.32251  6.23186  7.14685  7.02553  1.76469  5.22656  6.02391  8.86510  7.90937      1 - H
-#           2.68618  4.42225  2.77519  2.73123  3.46354  2.40513  3.72494  3.29354  2.67741  2.69355  4.24690  2.90347  2.73739  3.18146  2.89801  2.37887  2.77519  2.98518  4.58477  3.61503
-#           0.00153  6.88065  7.60300  0.61958  0.77255  0.48576  0.95510
-#       2   3.84702  5.95842  6.58626  5.97181  2.06407  5.79758  6.11757  2.43011  5.76033  0.58540  3.17079  5.96610  6.11889  5.84497  5.74893  5.11667  4.83456  2.97676  3.47925  3.13829      2 - H
-#           2.68618  4.42225  2.77519  2.73123  3.46354  2.40513  3.72494  3.29354  2.67741  2.69355  4.24690  2.90347  2.73739  3.18146  2.89801  2.37887  2.77519  2.98518  4.58477  3.61503
-#           0.00153  6.88065  7.60300  0.61958  0.77255  0.48576  0.95510
 module Bio
   class HMMER
+    ## Example HMM model file, taken from PFAM 26.
+    #
+    # HMMER3/b [3.0 | March 2010]
+    # NAME  1-cysPrx_C
+    # ACC   PF10417.4
+    # DESC  C-terminal domain of 1-Cys peroxiredoxin
+    # LENG  40
+    # ALPH  amino
+    # RF    no
+    # CS    yes
+    # MAP   yes
+    # DATE  Mon Sep 26 01:36:52 2011
+    # NSEQ  86
+    # EFFN  26.221497
+    # CKSUM 2893062708
+    # GA    20.40 20.40;
+    # TC    20.40 20.50;
+    # NC    20.30 20.30;
+    # BM    hmmbuild HMM.ann SEED.ann
+    # SM    hmmsearch -Z 15929002 -E 1000 --cpu 4 HMM pfamseq
+    # STATS LOCAL MSV       -7.4458  0.71948
+    # STATS LOCAL VITERBI   -7.8857  0.71948
+    # STATS LOCAL FORWARD   -4.3017  0.71948
+    # HMM          A        C        D        E        F        G        H        I        K        L        M        N        P        Q        R        S        T        V        W        Y
+    #             m->m     m->i     m->d     i->m     i->i     d->m     d->d
+    #   COMPO   2.25274  4.33630  2.74834  2.65826  3.87771  2.70273  3.95751  3.25125  2.56848  2.82101  4.06536  3.21194  2.50202  2.97228  3.39798  2.99665  2.70159  2.62185  3.52465  3.78187
+    #           2.68618  4.42225  2.77519  2.73123  3.46354  2.40513  3.72494  3.29354  2.67741  2.69355  4.24690  2.90347  2.73739  3.18146  2.89801  2.37887  2.77519  2.98518  4.58477  3.61503
+    #           0.00153  6.88065  7.60300  0.61958  0.77255  0.00000        *
+    #       1   0.35002  6.53529  7.25102  7.30399  7.52698  2.51105  7.66616  7.05965  7.14684  6.75377  3.79371  6.32251  6.23186  7.14685  7.02553  1.76469  5.22656  6.02391  8.86510  7.90937      1 - H
+    #           2.68618  4.42225  2.77519  2.73123  3.46354  2.40513  3.72494  3.29354  2.67741  2.69355  4.24690  2.90347  2.73739  3.18146  2.89801  2.37887  2.77519  2.98518  4.58477  3.61503
+    #           0.00153  6.88065  7.60300  0.61958  0.77255  0.48576  0.95510
+    #       2   3.84702  5.95842  6.58626  5.97181  2.06407  5.79758  6.11757  2.43011  5.76033  0.58540  3.17079  5.96610  6.11889  5.84497  5.74893  5.11667  4.83456  2.97676  3.47925  3.13829      2 - H
+    #           2.68618  4.42225  2.77519  2.73123  3.46354  2.40513  3.72494  3.29354  2.67741  2.69355  4.24690  2.90347  2.73739  3.18146  2.89801  2.37887  2.77519  2.98518  4.58477  3.61503
+    #           0.00153  6.88065  7.60300  0.61958  0.77255  0.48576  0.95510
     class Model
       class ParseException<Exception; end
 
@@ -92,7 +93,7 @@ module Bio
       # Assumes that the letter supplied is in the HMM's alphabet
       def match_probability(hmm_position, letter)
         index = @alphabet.index(letter)
-        match_emissions[hmm_position+1][index]
+        match_emissions[hmm_position-1][index]
       end
 
       # Parse a HMM file fed in through some IO, and return an instantiated
@@ -183,7 +184,7 @@ module Bio
           # All probability parameters are all stored as negative natural log probabilities with
           # five digits of precision to the right of the decimal point, rounded. For example,
           # a probability of 0.25 is stored as − log 0.25 = 1.38629.
-            10.0**-(s.to_f)
+            Math.exp(-(s.to_f))
           end
           model.match_emissions.push probabilities
           lineno += 1
