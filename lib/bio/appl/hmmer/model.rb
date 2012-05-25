@@ -53,7 +53,14 @@ module Bio
       attr_accessor :transitions
 
       # Probabilities for matches in the model (first line of each position in the main model part of the HMMER3/b file format)
-      # You probably want to use #match_probability not read this variable directly
+      # You probably want to use #match_probability not read this variable directly.
+      #
+      # For speed reasons, you may want to use this data directly, however.
+      #
+      # #match_emissions is an Array of Array objects:
+      # model#[position][amino_acid_index] => Probability of match
+      #
+      # amino_acid_index is an index of #alphabet
       attr_accessor :match_emissions
 
       # Probabilities for inserts in the model (second line of each position in the main model part of the HMMER3/b file format)
